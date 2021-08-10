@@ -1,9 +1,8 @@
 #!/usr/local/bin/fish
-if test (count $argv) -gt 0
-    set config $argv[1]
-else
-    set config 'config.json'
-end
-python main.py --config-json $config
+gk-basic
+latexmk -pdf main.tex
+lp main.pdf
+
+gk-basic --add [100, 200] --sub [100, 200] --div [2, 20] --mul [2, 20]
 latexmk -pdf main.tex
 lp main.pdf

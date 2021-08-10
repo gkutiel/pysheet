@@ -6,3 +6,6 @@
 *.tex
 *.txt
 *.xdv
+
+.vscode/
+pysheet.egg-info/

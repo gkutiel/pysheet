@@ -9,7 +9,7 @@ rope = "*"
 autopep8 = "*"
 
 [packages]
-numpy = "*"
+pysheet = {editable = true, path = "."}
 
 [requires]
 python_version = "3.6"

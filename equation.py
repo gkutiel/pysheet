@@ -1,29 +1,25 @@
 import numpy as np
 import random
-from random import randint
 from fire import Fire
-import json
 
 
-def eq(a, x, b):
-    if random.random() < 0.5:
-        return f'{a}X + {b} = {a * x + b}'
-    else:
-        return f'{a}X - {b} = {a * x - b}'
+def gen_worksheet(a=[2, 5], x=[-5, 5], b=[1, 10]):
+    def eq(a, x, b):
+        if random.random() < 0.5:
+            return f'{a}X + {b} = {a * x + b}'
+        else:
+            return f'{a}X - {b} = {a * x - b}'
 
+    def row():
+        return ' & '.join([
+            eq(a, x, b)
+            for a, x, b
+            in zip(
+                np.random.randint(a[0], a[1], 4),
+                np.random.randint(x[0], x[1], 4),
+                np.random.randint(b[0], b[1], 4))]) + '\\\\[\\vs]'
 
-def row(size=4):
-    return ' & '.join([
-        eq(a, x, b)
-        for a, x, b
-        in zip(
-            np.random.randint(2, 5, size),
-            np.random.randint(-5, 5, size),
-            np.random.randint(1, 10, size))]) + '\\\\[\\vs]'
-
-
-def gen_worksheet(num_rows=6):
-    rows = [row() for _ in range(num_rows)]
+    rows = [row() for _ in range(6)]
 
     with open('main.tex', 'w') as f:
         f.write('''

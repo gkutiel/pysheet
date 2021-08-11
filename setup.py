@@ -1,9 +1,14 @@
 from setuptools import setup, find_packages
+from version import version
+
+with open("README.md") as f:
+    long_description = f.read()
 
 setup(
     name='pysheet',
-    version='0.0.1',
+    version=f'{version}',
     packages=find_packages(),
+    long_description=long_description
     install_requires=[
         'fire',
         'numpy',

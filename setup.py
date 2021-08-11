@@ -16,6 +16,7 @@ setup(
         'console_scripts': [
             'gk-basic = basic:main',
             'gk-equation = equation:main',
+            'gk-equation-xy = equation_xy:main',
         ],
     }
 )

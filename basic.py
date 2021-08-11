@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from random import randint
+from tex import write_tex
 from fire import Fire
 import json
 
@@ -30,7 +31,7 @@ def gen_worksheet(
         return f'\\gkdiv{{{a}}}{{{b}}}'
 
     def row(exs):
-        return '&'.join(exs) + '\\\\[\\vs]'
+        return '&'.join(exs)
 
     rows = [
         row([ex_add(num(*add), num(*add)) for _ in range(4)]),
@@ -43,13 +44,7 @@ def gen_worksheet(
             ex_mul(num(*mul), num(*mul)),
             ex_div(num(*div), num(*div))])]
 
-    with open('main.tex', 'w') as f:
-        f.write('''
-            \\documentclass[12pt]{article}
-            \\usepackage{fullpage}
-
-            \\def \\hs {3.5cm}
-            \\def \\vs {3cm}
+    commands = '''
             \\newcommand{\\gkop}[3]{
                 \\begin{array}{c@{\\;}r}
                     & #1 \\\\
@@ -62,18 +57,8 @@ def gen_worksheet(
             \\newcommand{\\gksub}[2]{\\gkop{#1}{-}{#2}}
             \\newcommand{\\gkmul}[2]{\\gkop{#1}{\\times}{#2}}
             \\newcommand{\\gkdiv}[2]{\\gkop{#1}{\\div}{#2}}
-
-            \\begin{document}
-
-            \\[
-                \\begin{array}{c@{\\hspace{\\hs}}c@{\\hspace{\\hs}}c@{\\hspace{\\hs}}c@{\\hspace{\\hs}}}
-            ''' + ''.join(rows) + '''
-                \\end{array}
-            \\]
-
-            \\end{document}    
-        '''
-                )
+    '''
+    write_tex(rows=rows, commands=commands)
 
 
 def main():

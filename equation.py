@@ -1,6 +1,7 @@
 import numpy as np
 import random
 from fire import Fire
+from tex import write_tex
 
 
 def gen_worksheet(a=[2, 5], x=[-5, 5], b=[1, 10]):
@@ -17,29 +18,9 @@ def gen_worksheet(a=[2, 5], x=[-5, 5], b=[1, 10]):
             in zip(
                 np.random.randint(a[0], a[1], 4),
                 np.random.randint(x[0], x[1], 4),
-                np.random.randint(b[0], b[1], 4))]) + '\\\\[\\vs]'
+                np.random.randint(b[0], b[1], 4))])
 
-    rows = [row() for _ in range(6)]
-
-    with open('main.tex', 'w') as f:
-        f.write('''
-            \\documentclass[12pt]{article}
-            \\usepackage{fullpage}
-
-            \\def \\hs {2.3cm}
-            \\def \\vs {3cm}    
-            \\begin{document}
-
-            \\[
-                \\begin{array}{l@{\hspace{\hs}}l@{\hspace{\hs}}l@{\hspace{\hs}}l@{\hspace{\hs}}}
-                    ''' + ''.join(rows) + '''
-
-                \\end{array}
-            \\]
-
-            \\end{document}    
-        '''
-                )
+    write_tex(align='l', rows=[row() for _ in range(6)], hs='2.2cm')
 
 
 def main():

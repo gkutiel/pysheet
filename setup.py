@@ -8,7 +8,7 @@ setup(
     name='pysheet',
     version=f'{version}',
     packages=find_packages(),
-    long_description=long_description
+    long_description=long_description,
     install_requires=[
         'fire',
         'numpy',
@@ -19,9 +19,11 @@ setup(
     python_requires='>=3.6',
     entry_points={
         'console_scripts': [
-            'gk-basic = basic:main',
-            'gk-equation = equation:main',
-            'gk-equation-xy = equation_xy:main',
+            'gk-arithmetic = pysheet.arithmetic:main',
+
+            'gk-equation-1 = pysheet.equation_1:main',
+            'gk-equation-2 = pysheet.equation_2:main',
+            'gk-equation-3 = pysheet.equation_3:main',
         ],
     }
 )

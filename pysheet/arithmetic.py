@@ -1,8 +1,6 @@
-from abc import ABC, abstractmethod
 from random import randint
-from tex import write_tex
+from pysheet.tex import write_tex
 from fire import Fire
-import json
 
 
 def gen_worksheet(

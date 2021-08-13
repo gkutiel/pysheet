@@ -1,9 +1,9 @@
 from pathlib import Path
-from plmbr.version import version
+from version import version
 
 pys = list(Path('.').rglob('*.py'))
 mds = list(Path('.').rglob('*.md'))
-sdist = Path('dist') / f'plmbr-{version}.tar.gz'
+sdist = Path('dist') / f'pysheet-{version}.tar.gz'
 
 
 def task_test():

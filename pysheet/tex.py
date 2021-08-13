@@ -1,8 +1,8 @@
 def write_tex(
         cols=4,
         align='c',
-        hs='3.5cm',
-        vs='3cm',
+        hs='4.5cm',
+        vs='4cm',
         rows=[],
         commands='',
         file='main.tex'):
@@ -11,6 +11,9 @@ def write_tex(
         f.write('''
             \\documentclass[12pt]{article}
             \\usepackage{fullpage}
+            \\thispagestyle{empty}
+            \\usepackage[margin=1.5cm]{geometry}            
+
 
             \\def \\hs {''' + hs + '''}
             \\def \\vs {''' + vs + '''}

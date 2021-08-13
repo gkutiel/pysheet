@@ -13,6 +13,7 @@ twine = "*"
 
 [packages]
 pysheet = {editable = true, path = "."}
+py-worksheet = {editable = true, path = "."}
 
 [requires]
 python_version = "3.6"

@@ -9,6 +9,8 @@ def gen_worksheet(
         mul=[2, 5],
         div=[2, 5]):
 
+    NUM_COLS = 4
+
     def num(l, h):
         return randint(l, h)
 
@@ -32,10 +34,10 @@ def gen_worksheet(
         return '&'.join(exs)
 
     rows = [
-        row([ex_add(num(*add), num(*add)) for _ in range(4)]),
-        row([ex_sub(num(*sub), num(*sub)) for _ in range(4)]),
-        row([ex_mul(num(*mul), num(*mul)) for _ in range(4)]),
-        row([ex_div(num(*div), num(*div)) for _ in range(4)]),
+        row([ex_add(num(*add), num(*add)) for _ in range(NUM_COLS)]),
+        row([ex_sub(num(*sub), num(*sub)) for _ in range(NUM_COLS)]),
+        row([ex_mul(num(*mul), num(*mul)) for _ in range(NUM_COLS)]),
+        row([ex_div(num(*div), num(*div)) for _ in range(NUM_COLS)]),
         row([
             ex_add(num(*add), num(*add)),
             ex_sub(num(*sub), num(*sub)),

@@ -27,6 +27,8 @@ setup(
             'gk-equation-1 = pysheet.equation_1:main',
             'gk-equation-2 = pysheet.equation_2:main',
             'gk-equation-3 = pysheet.equation_3:main',
+
+            'gk-frac-1 = pysheet.frac_1:main',
         ],
     }
 )

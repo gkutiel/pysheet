@@ -4,6 +4,9 @@ from pysheet.tex import write_tex
 
 
 def gen_worksheet(a=[2, 10], x=[-10, 10], b=[1, 10]):
+    NUM_COLS = 3
+    NUM_ROWS = 5
+
     def eq(a, x, b, c):
         if a == c:
             c += 1
@@ -16,7 +19,6 @@ def gen_worksheet(a=[2, 10], x=[-10, 10], b=[1, 10]):
             f'{a}X + {b} = {c}X')
 
     def row():
-        NUM_COLS = 3
         return ' & '.join([
             eq(a, x, b, c)
             for a, x, b, c
@@ -26,7 +28,7 @@ def gen_worksheet(a=[2, 10], x=[-10, 10], b=[1, 10]):
                 np.random.randint(b[0], b[1], NUM_COLS),
                 np.random.randint(a[0], a[1], NUM_COLS))])
 
-    write_tex(align='l', rows=[row() for _ in range(6)], hs='4cm')
+    write_tex(align='l', rows=[row() for _ in range(NUM_ROWS)], hs='2.7cm', vs='4.3cm')
 
 
 def main():

@@ -1,15 +1,16 @@
 def write_tex(
         cols=4,
         align='c',
-        hs='4.5cm',
-        vs='4cm',
+        hs='4.3cm',
+        vs='3.9cm',
+        font_size='14pt',
         rows=[],
         commands='',
         file='main.tex'):
     array_def = (align + '@{\\hspace{\\hs}}') * cols
     with open(file, 'w') as f:
         f.write('''
-            \\documentclass[12pt]{article}
+            \\documentclass[''' + font_size + ''']{extarticle}
             \\usepackage{fullpage}
             \\thispagestyle{empty}
             \\usepackage[margin=1.5cm]{geometry}            

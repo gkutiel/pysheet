@@ -1,14 +1,17 @@
 from setuptools import setup, find_packages
-from version import version
+from version import version, name
 
 with open("README.md") as f:
     long_description = f.read()
 
 setup(
-    name='pysheet',
+    name=f'{name}',
     version=f'{version}',
     packages=find_packages(),
     long_description=long_description,
+    url="https://pysheet.github.io/pysheet/",
+    author='Gilad Kutiel',
+    author_email='gilad.kutiel@gmail.com',
     install_requires=[
         'fire',
         'numpy',

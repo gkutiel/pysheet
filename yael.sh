@@ -1,5 +1,3 @@
 #!/usr/local/bin/fish
-gk-basic
-latexmk -pdf main.tex
-lp main.pdf
+gk-arithmetic && latexmk -pdf main.tex && lp main.pdf
 

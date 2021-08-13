@@ -8,6 +8,7 @@ mypy = "*"
 rope = "*"
 autopep8 = "*"
 doit = "*"
+pytest = "*"
 
 [packages]
 pysheet = {editable = true, path = "."}

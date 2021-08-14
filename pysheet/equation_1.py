@@ -9,19 +9,24 @@ def gen_worksheet(a=[2, 10], x=[-10, 10], b=[1, 10]):
     NUM_ROWS = 5
 
     def eq(a, x, b):
+        c = "" if a == 1 else a
         if random.random() < 0.5:
-            return f'{a}X + {b} = {a * x + b}'
+            d = "" if b == 0 else f' + {b}'
+            e = a * x + b
         else:
-            return f'{a}X - {b} = {a * x - b}'
+            d = "" if b == 0 else f' - {b}'
+            e = a * x - b
+
+        return f'{c}X{d} = {e}'
 
     def row():
         return ' & '.join([
             eq(a, x, b)
             for a, x, b
             in zip(
-                np.random.randint(a[0], a[1], NUM_COLS),
-                np.random.randint(x[0], x[1], NUM_COLS),
-                np.random.randint(b[0], b[1], NUM_COLS))])
+                np.random.randint(a[0], a[1] + 1, NUM_COLS),
+                np.random.randint(x[0], x[1] + 1, NUM_COLS),
+                np.random.randint(b[0], b[1] + 1, NUM_COLS))])
 
     write_tex(align='l', rows=[row() for _ in range(NUM_ROWS)], vs='4.3cm')
 

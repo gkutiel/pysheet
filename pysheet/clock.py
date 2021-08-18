@@ -40,10 +40,10 @@ def gen_worksheet():
 
     def row():
         return '&'.join([
-            f'\clock{{{h}}}{{{m}}}'
+            f'\clock{{{h}}}{{{m*5}}}'
             for h, m in zip(
                 np.random.randint(1, 13, NUM_COLS),
-                np.random.randint(0, 60, NUM_COLS))
+                np.random.randint(0, 12, NUM_COLS))
         ])
 
     write_tex(

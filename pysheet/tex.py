@@ -1,7 +1,7 @@
 def write_tex(
         cols=4,
         align='c',
-        hs='4.3cm',
+        hs='4cm',
         vs='3.9cm',
         font_size='14pt',
         rows=[],
@@ -12,6 +12,7 @@ def write_tex(
         f.write('''
             \\documentclass[''' + font_size + ''']{extarticle}
             \\usepackage{fullpage}
+            \\usepackage{tikz}
             \\thispagestyle{empty}
             \\usepackage[margin=1.5cm]{geometry}            
 

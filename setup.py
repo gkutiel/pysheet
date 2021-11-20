@@ -33,6 +33,8 @@ setup(
 
 
             'gk-clock = pysheet.clock:main',
+
+            'gk-word-problems = pysheet.word_problems:main',
         ],
     }
 )

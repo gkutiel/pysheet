@@ -9,11 +9,12 @@ rope = "*"
 autopep8 = "*"
 doit = "*"
 pytest = "*"
+pytest-watch = "*"
 twine = "*"
 
 [packages]
-pysheet = {editable = true, path = "."}
+pysheet = { editable = true, path = "." }
 py-worksheet = {editable = true, path = "."}
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"

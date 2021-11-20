@@ -8,3 +8,5 @@ gk-equation-1 && latexmk -pdf main.tex && lp main.pdf
 # gk-frac-1 && latexmk -pdf main.tex && lp main.pdf
 
 gk-clock && latexmk -pdf main.tex && lp main.pdf
+
+gk-word-problems && latexmk -xetex -pdf main.tex && lp main.pdf

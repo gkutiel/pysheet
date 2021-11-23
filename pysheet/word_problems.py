@@ -15,7 +15,7 @@ def word_problem(*, x, a, b, first_name=None, second_name=None):
     return f'ל{first_name} יש {a} קופסאות, בכל קופסה מספר זהה של עוגיות. ל{second_name} יש {b} עוגיות. ל{first_name} ו{second_name} ביחד יש {a*x+b} עוגיות, כמה עוגיות יש ל{first_name} בכל קופסה?'
 
 
-def word_problems(count=5, min_x=1, max_x=30, min_a=2, max_a=30, min_b=10, max_b=100):
+def word_problems(count=5, min_x=1, max_x=12, min_a=2, max_a=12, min_b=10, max_b=150):
     def problems():
         for i in range(count):
             x = randint(min_x, max_x)

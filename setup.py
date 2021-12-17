@@ -30,6 +30,7 @@ setup(
 
             'gk-frac-1 = pysheet.frac_1:main',
             'gk-frac-2 = pysheet.frac_2:main',
+            'gk-frac-3 = pysheet.frac_3:main',
 
 
             'gk-clock = pysheet.clock:main',

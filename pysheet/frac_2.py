@@ -4,7 +4,7 @@ from fire import Fire
 from pysheet.tex import write_tex
 
 
-def gen_worksheet(a=[1, 10], b=[2, 20]):
+def gen_worksheet(a=[1, 3], b=[2, 10]):
     NUM_COLS = 4
     NUM_ROWS = 5
 

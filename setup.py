@@ -36,6 +36,8 @@ setup(
             'gk-clock = pysheet.clock:main',
 
             'gk-word-problems = pysheet.word_problems:main',
+
+            'gk-fun-square = pysheet.fun_square:main',
         ],
     }
 )

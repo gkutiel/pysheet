@@ -7,3 +7,4 @@ gk-equation-2 && latexmk -pdf main.tex && lp main.pdf
 gk-frac-1 && latexmk -pdf main.tex && lp main.pdf
 #gk-clock && latexmk -pdf main.tex && lp main.pdf
 #gk-word-problems && latexmk -xelatex main.tex && lp main.pdf
+gk-fun-square -max-val 99 && latexmk -pdf main.tex && lp main.pdf

@@ -4,6 +4,21 @@ from collections import defaultdict
 from pprint import pprint
 
 
+class Vals:
+    def __init__(self, n, max_val):
+        self.rows = [randint(1, max_val) for _ in range(n)]
+        self.cols = [randint(1, max_val) for _ in range(n)]
+
+    def get(self, i, j):
+        if i == 0:
+            return self.cols[j]
+
+        if j == 0:
+            return self.rows[i]
+
+        return self.rows[i] + self.cols[j]
+
+
 def cells(n):
     cols = set(range(1, n))
     rows = set(range(1, n))
@@ -26,12 +41,13 @@ def cells(n):
 
 
 def rows(n, cells, max_val):
+    vals = Vals(n, max_val)
     rows = [[''] * (n) for _ in range(n)]
     rows[0][0] = '+'
 
     for row in cells:
         for col in cells[row]:
-            rows[row][col] = str(randint(1, max_val))
+            rows[row][col] = str(vals.get(row, col))
 
     pprint(rows)
     return '\n'.join([

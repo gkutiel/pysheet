@@ -59,10 +59,10 @@ def rows(n, cells, max_val):
 start = r'''\nonstopmode
 \documentclass[]{article}
 \usepackage{array}
-\newcolumntype{P}{ > {\Large\centering\arraybackslash}m{12pt}}
+\newcolumntype{P}{ > {\Large\centering\arraybackslash}m{19pt}}
 
 \begin{document}
-\renewcommand{\arraystretch}{2}
+\renewcommand{\arraystretch}{2.5}
 \centering
 '''
 

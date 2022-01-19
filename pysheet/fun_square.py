@@ -1,13 +1,13 @@
 from fire import Fire
-from random import choice, randint
+from random import choice, randint, choices
 from collections import defaultdict
 from pprint import pprint
 
 
 class Vals:
     def __init__(self, n, max_val):
-        self.rows = [randint(1, max_val) for _ in range(n)]
-        self.cols = [randint(1, max_val) for _ in range(n)]
+        self.rows = choices(range(1, max_val + 1), k=n)
+        self.cols = choices(range(1, max_val + 1), k=n)
 
     def get(self, i, j):
         if i == 0:
@@ -79,7 +79,8 @@ end = r'''
 \end{document}'''
 
 
-def fun_square(n=10, max_val=20):
+def fun_square(n=10, max_val=10):
+    max_val = max(max_val, n)
     c = cells(n)
     print(c)
     tex = f'{start}{table(n)}{rows(n, c, max_val)}{end}'

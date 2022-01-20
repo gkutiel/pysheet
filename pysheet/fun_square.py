@@ -33,6 +33,8 @@ end = r'''
 
 
 def fun_square(n=10, max_val=10, op='x'):
+    n = n+1
+
     class Vals:
         def __init__(self, n, max_val):
             self.op = ops[op]

@@ -5,9 +5,7 @@ from pprint import pprint
 
 ops = {
     'x': lambda x, y: x * y,
-    '÷': lambda x, y: x / y,
     '+': lambda x, y: x + y,
-    '-': lambda x, y: x - y,
 }
 
 

@@ -58,7 +58,10 @@ def gen_worksheet(
             \\newcommand{\\gkmul}[2]{\\gkop{#1}{\\times}{#2}}
             \\newcommand{\\gkdiv}[2]{\\gkop{#1}{\\div}{#2}}
     '''
-    write_tex(rows=rows, commands=commands)
+    write_tex(
+        file='arithmetic.tex',
+        rows=rows, 
+        commands=commands)
 
 
 def main():

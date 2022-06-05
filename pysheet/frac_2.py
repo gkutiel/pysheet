@@ -20,7 +20,12 @@ def gen_worksheet(a=[1, 3], b=[2, 10]):
                 np.random.randint(a[0], a[1], NUM_COLS),
                 np.random.randint(b[0], b[1], NUM_COLS))])
 
-    write_tex(align='l', rows=[row() for _ in range(NUM_ROWS)], vs='4.3cm', hs='3.5cm')
+    write_tex(
+        file='frac_2.tex',
+        align='l', 
+        rows=[row() for _ in range(NUM_ROWS)], 
+        vs='4.3cm', 
+        hs='3.5cm')
 
 
 def main():

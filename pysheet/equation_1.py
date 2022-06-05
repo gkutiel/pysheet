@@ -28,7 +28,11 @@ def gen_worksheet(a=[2, 10], x=[-10, 10], b=[1, 10]):
                 np.random.randint(x[0], x[1] + 1, NUM_COLS),
                 np.random.randint(b[0], b[1] + 1, NUM_COLS))])
 
-    write_tex(align='l', rows=[row() for _ in range(NUM_ROWS)], vs='4.3cm')
+    write_tex(
+        file='equation_1.tex',
+        align='l', 
+        rows=[row() for _ in range(NUM_ROWS)], 
+        vs='4.3cm')
 
 
 def main():

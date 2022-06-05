@@ -91,7 +91,7 @@ def fun_square(n=10, max_val=10, op='x'):
     c = cells(n)
     print(c)
     tex = f'{start}{table(n)}{rows(n, c, max_val)}{end}'
-    with open('main.tex', 'w') as f:
+    with open('fun_square.tex', 'w') as f:
         f.write(tex)
 
 

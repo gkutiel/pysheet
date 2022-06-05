@@ -47,6 +47,7 @@ def gen_worksheet():
         ])
 
     write_tex(
+        file='clock.tex',
         commands=command,
         rows=[row() for _ in range(NUM_ROWS)],
         vs='2cm',

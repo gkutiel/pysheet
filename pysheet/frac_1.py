@@ -30,7 +30,12 @@ def gen_worksheet(k=4):
     def row():
         return ' & '.join([eq() for _ in range(NUM_COLS)])
 
-    write_tex(align='l', rows=[row() for _ in range(NUM_ROWS)], vs='4.3cm', hs='3.5cm')
+    write_tex(
+        file='frac_1.tex',
+        align='l', 
+        rows=[row() for _ in range(NUM_ROWS)], 
+        vs='4.3cm', 
+        hs='3.5cm')
 
 
 def main():

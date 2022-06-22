@@ -7,7 +7,8 @@ def gen_worksheet(
         add=[5, 15],
         sub=[5, 15],
         mul=[2, 5],
-        div=[2, 5]):
+        div=[2, 5],
+        out='arithmetic.tex'):
 
     NUM_COLS = 4
 
@@ -59,7 +60,7 @@ def gen_worksheet(
             \\newcommand{\\gkdiv}[2]{\\gkop{#1}{\\div}{#2}}
     '''
     write_tex(
-        file='arithmetic.tex',
+        file=out,
         rows=rows, 
         commands=commands)
 

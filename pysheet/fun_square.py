@@ -32,7 +32,7 @@ end = r'''
 \end{document}'''
 
 
-def fun_square(n=10, max_val=10, op='x'):
+def fun_square(n=10, max_val=10, op='x', out='fun_square.tex'):
     n = n+1
 
     class Vals:
@@ -91,7 +91,7 @@ def fun_square(n=10, max_val=10, op='x'):
     c = cells(n)
     print(c)
     tex = f'{start}{table(n)}{rows(n, c, max_val)}{end}'
-    with open('fun_square.tex', 'w') as f:
+    with open(out, 'w') as f:
         f.write(tex)
 
 

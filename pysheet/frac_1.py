@@ -5,7 +5,7 @@ from functools import reduce
 from collections import Counter
 
 
-def gen_worksheet(k=4):
+def gen_worksheet(out='frac_1.tex', k=4):
     primes = [1, 1, 2, 2, 3, 3, 5, 7]
     NUM_COLS = 4
     NUM_ROWS = 5
@@ -31,7 +31,7 @@ def gen_worksheet(k=4):
         return ' & '.join([eq() for _ in range(NUM_COLS)])
 
     write_tex(
-        file='frac_1.tex',
+        file=out,
         align='l', 
         rows=[row() for _ in range(NUM_ROWS)], 
         vs='4.3cm', 

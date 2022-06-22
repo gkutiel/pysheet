@@ -3,7 +3,11 @@ from fire import Fire
 from pysheet.tex import write_tex
 
 
-def gen_worksheet(a=[2, 10], x=[-10, 10], b=[1, 10]):
+def gen_worksheet(
+    out='equation_3.tex',
+    a=[2, 10], 
+    x=[-10, 10], 
+    b=[1, 10]):
     NUM_COLS = 3
     NUM_ROWS = 5
 
@@ -29,7 +33,7 @@ def gen_worksheet(a=[2, 10], x=[-10, 10], b=[1, 10]):
                 np.random.randint(a[0], a[1], NUM_COLS))])
 
     write_tex(
-        file='equation_3.tex',
+        file=out,
         align='l', 
         rows=[row() for _ in range(NUM_ROWS)], 
         hs='2.7cm', 

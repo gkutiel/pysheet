@@ -3,7 +3,7 @@ from fire import Fire
 from pysheet.tex import write_tex
 
 
-def gen_worksheet():
+def gen_worksheet(out='clock.tex'):
     NUM_COLS = 2
     NUM_ROWS = 3
 
@@ -47,7 +47,7 @@ def gen_worksheet():
         ])
 
     write_tex(
-        file='clock.tex',
+        file=out,
         commands=command,
         rows=[row() for _ in range(NUM_ROWS)],
         vs='2cm',

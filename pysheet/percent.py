@@ -1,16 +1,18 @@
 from random import randint
+
+
 def gen(max_a=99, max_b=99):
     a = randint(1, max_a)
     b = randint(1, max_b)
     while a*b % 100:
         a = randint(1, max_a)
         b = randint(1, max_b)
-    
+
     return a, b
 
 
-def gen_worksheet():
-    with open('main.tex', 'w') as f:
+def gen_worksheet(out='percent.tex'):
+    with open(out, 'w') as f:
         print(r'''  
 \nonstopmode
 \documentclass[]{article}

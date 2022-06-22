@@ -11,6 +11,7 @@
 *.gz
 *.db
 *.log
+*.dvi
 
 .vscode/
 __pycache__/

@@ -4,7 +4,10 @@ from fire import Fire
 from pysheet.tex import write_tex
 
 
-def gen_worksheet(a=[1, 3], b=[2, 10]):
+def gen_worksheet(
+    out='frac_2.tex',
+    a=[1, 3], 
+    b=[2, 10]):
     NUM_COLS = 4
     NUM_ROWS = 5
 
@@ -21,7 +24,7 @@ def gen_worksheet(a=[1, 3], b=[2, 10]):
                 np.random.randint(b[0], b[1], NUM_COLS))])
 
     write_tex(
-        file='frac_2.tex',
+        file=out,
         align='l', 
         rows=[row() for _ in range(NUM_ROWS)], 
         vs='4.3cm', 

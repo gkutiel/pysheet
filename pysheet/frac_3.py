@@ -40,8 +40,8 @@ def q():
     return r'\begin{tikzpicture}[x=1cm, y=1cm] \node[circle, draw, minimum size=4cm] at(0,0) (a) {};' + frac_node(a, b) + tikz_slice(step) + r'\end{tikzpicture}'
 
 
-def gen_worksheet():
-    with open('main.tex', 'w') as f:
+def gen_worksheet(out='frac_3.tex'):
+    with open(out, 'w') as f:
         print(r'''
         \documentclass[]{article}
         \usepackage{fullpage}

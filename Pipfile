@@ -13,8 +13,8 @@ pytest-watch = "*"
 twine = "*"
 
 [packages]
-pysheet = { editable = true, path = "." }
-py-worksheet = {editable = true, path = "."}
+pysheet = {path = ".",editable = true}
+py-worksheet = {path = ".",editable = true}
 
 [requires]
 python_version = "3.7"

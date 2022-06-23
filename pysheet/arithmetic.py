@@ -1,49 +1,26 @@
+from functools import partial
 from random import randint
 from pysheet.tex import write_tex
 from fire import Fire
 
 
-def gen_worksheet(
-        add=[5, 15],
-        sub=[5, 15],
-        mul=[2, 5],
-        div=[2, 5],
-        out='arithmetic.tex'):
+def gen_worksheet(a, b, ex_func, out='arithmetic.tex'):
 
-    NUM_COLS = 4
+    NUM_ROWS, NUM_COLS = 5, 4
 
     def num(l, h):
         return randint(l, h)
-
-    def ex_add(n: int, m: int):
-        return f'\\gkadd{{{n}}}{{{m}}}'
-
-    def ex_mul(n: int, m: int):
-        return f'\\gkmul{{{n}}}{{{m}}}'
-
-    def ex_sub(a: int, b: int):
-        if a < b:
-            a, b = b, a
-        return f'\\gksub{{{a}}}{{{b}}}'
-
-    def ex_div(n: int, m: int):
-        b = n
-        a = b * m
-        return f'\\gkdiv{{{a}}}{{{b}}}'
 
     def row(exs):
         return '&'.join(exs)
 
     rows = [
-        row([ex_add(num(*add), num(*add)) for _ in range(NUM_COLS)]),
-        row([ex_sub(num(*sub), num(*sub)) for _ in range(NUM_COLS)]),
-        row([ex_mul(num(*mul), num(*mul)) for _ in range(NUM_COLS)]),
-        row([ex_div(num(*div), num(*div)) for _ in range(NUM_COLS)]),
         row([
-            ex_add(num(*add), num(*add)),
-            ex_sub(num(*sub), num(*sub)),
-            ex_mul(num(*mul), num(*mul)),
-            ex_div(num(*div), num(*div))])]
+            ex_func(
+                num(a, b),
+                num(a, b))
+            for _ in range(NUM_COLS)])
+        for _ in range(NUM_ROWS)]
 
     commands = '''
             \\newcommand{\\gkop}[3]{
@@ -61,13 +38,58 @@ def gen_worksheet(
     '''
     write_tex(
         file=out,
-        rows=rows, 
+        rows=rows,
         commands=commands)
 
 
-def main():
-    Fire(gen_worksheet)
+def ex_add(n: int, m: int):
+    return f'\\gkadd{{{n}}}{{{m}}}'
 
 
-if __name__ == '__main__':
-    main()
+def ex_mul(n: int, m: int):
+    return f'\\gkmul{{{n}}}{{{m}}}'
+
+
+def ex_sub(a: int, b: int):
+    if a < b:
+        a, b = b, a
+    return f'\\gksub{{{a}}}{{{b}}}'
+
+
+def ex_div(n: int, m: int):
+    b = n
+    a = b * m
+    return f'\\gkdiv{{{a}}}{{{b}}}'
+
+
+gen_add = partial(
+    gen_worksheet,
+    ex_func=ex_add)
+
+gen_sub = partial(
+    gen_worksheet,
+    ex_func=ex_sub)
+
+gen_mul = partial(
+    gen_worksheet,
+    ex_func=ex_mul)
+
+gen_div = partial(
+    gen_worksheet,
+    ex_func=ex_div)
+
+
+def add():
+    Fire(gen_add)
+
+
+def sub():
+    Fire(gen_sub)
+
+
+def mul():
+    Fire(gen_mul)
+
+
+def div():
+    Fire(gen_div)

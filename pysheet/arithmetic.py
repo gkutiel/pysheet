@@ -4,7 +4,7 @@ from pysheet.tex import write_tex
 from fire import Fire
 
 
-def gen_worksheet(a, b, ex_func, out='arithmetic.tex'):
+def gen_worksheet(ex_func, a=1, b=9, out='arithmetic.tex'):
 
     NUM_ROWS, NUM_COLS = 5, 4
 

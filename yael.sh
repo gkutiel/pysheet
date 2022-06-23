@@ -1,8 +1,8 @@
 #!/usr/local/bin/fish
-gk-arithmetic --add [10,200] --sub [1,30] --mul [2,7] --div [2,7] --out 'yael/arit1.tex'
-gk-arithmetic --add [10,200] --sub [1,30] --mul [2,7] --div [2,7] --out 'yael/arit2.tex'
-gk-equation-1 -a [1,1] -x [3,10] -b [1,2] --out 'yael/eq1.tex'
-gk-clock --out 'yael/clock.tex'
-gk-fun-square -n 5 -op '+' --out 'yael/squr.tex'
+
+gk-add -a 10 -b 100 --out yael/add.tex
+gk-sub -a 10 -b 100 --out yael/sub.tex
+gk-mul -a 2 -b 5 --out yael/mul.tex
+gk-div -a 2 -b 5 --out yael/div.tex
 
 latexmk -pdf --outdir=yael yael/*.tex

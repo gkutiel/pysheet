@@ -1,7 +1,7 @@
 from itertools import product
 from math import gcd, lcm
+from random import choice
 from random import randint as rnd
-from random import sample
 
 from fire import Fire
 
@@ -10,7 +10,7 @@ from pysheet.tex import write_tex
 
 def gen_worksheet(
         out='frac_4.tex',
-        max_lcm=18):
+        max_lcm=10):
 
     NUM_COLS = 3
     NUM_ROWS = 4
@@ -41,13 +41,18 @@ def gen_worksheet(
             \end{tikzpicture}
         ''' + f'\\frac{{{a}}}{{{c}}} + \\frac{{{b}}}{{{d}}} = '
 
-    ds = list(range(2, max_lcm // 2))
+    ds = list(range(2, max_lcm+1))
     denos = [
         p for p in product(ds, ds)
         if lcm(*p) <= max_lcm]
 
-    def row():
-        exs = [ex(*ds) for ds in sample(denos, k=NUM_COLS)]
+    exs = set()
+    while len(exs) < NUM_COLS * NUM_ROWS:
+        exs.add(ex(*choice(denos)))
+
+    exs = list(exs)
+
+    def row(exs):
         return ' & '.join([
             eq(i, j)
             for i, j in exs])
@@ -55,7 +60,9 @@ def gen_worksheet(
     write_tex(
         file=out,
         align='l',
-        rows=[row() for _ in range(NUM_ROWS)],
+        rows=[
+            row(exs[r * NUM_COLS: (r+1) * NUM_COLS])
+            for r in range(NUM_ROWS)],
         vs='3.5cm',
         hs='3cm')
 

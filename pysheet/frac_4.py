@@ -10,7 +10,7 @@ from pysheet.tex import write_tex
 
 def gen_worksheet(
         out='frac_4.tex',
-        max_lcm=10):
+        max_lcm=15):
 
     NUM_COLS = 3
     NUM_ROWS = 4

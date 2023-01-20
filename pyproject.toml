@@ -5,7 +5,7 @@ description = ""
 authors = ["Gilad Kutiel <gilad.kutiel@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "=3.9"
+python = "=3.9.7"
 numpy = "^1.23.0"
 fire = "^0.4.0"
 
@@ -32,6 +32,7 @@ gk-equation-3 = 'pysheet.equation_3:main'
 gk-frac-1 = 'pysheet.frac_1:main'
 gk-frac-2 = 'pysheet.frac_2:main'
 gk-frac-3 = 'pysheet.frac_3:main'
+gk-frac-4 = 'pysheet.frac_4:main'
 
 
 gk-clock = 'pysheet.clock:main'
